@@ -1,0 +1,224 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-light: #273449;
+  --accent: #22c55e;
+  --accent-dark: #16a34a;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --bubble-self: #22c55e;
+  --bubble-other: #334155;
+  --danger: #ef4444;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+  background: linear-gradient(160deg, #0f172a, #111827);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--panel-light);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.lock-icon { font-size: 24px; }
+
+.app-header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.status-dot {
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--danger);
+  transition: background 0.3s ease;
+}
+.status-dot.online { background: var(--accent); }
+
+.hidden { display: none !important; }
+
+.login-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--panel-light);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  text-align: left;
+}
+
+.login-card h2 {
+  margin-top: 0;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.login-card label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0f172a;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.login-card button,
+.message-form button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #062112;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.login-card button:hover,
+.message-form button:hover {
+  background: var(--accent-dark);
+}
+
+.chat-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bubble-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+}
+
+.bubble-row.self {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.bubble-row.other {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.bubble-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+  padding: 0 4px;
+}
+
+.bubble {
+  padding: 9px 13px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.35;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.bubble-row.self .bubble {
+  background: var(--bubble-self);
+  color: #052e14;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble-row.other .bubble {
+  background: var(--bubble-other);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.bubble.decrypt-error {
+  background: var(--danger) !important;
+  color: white !important;
+  font-style: italic;
+}
+
+.message-form {
+  display: flex;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--panel-light);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.message-form input {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0f172a;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.message-form button {
+  margin-top: 0;
+  width: auto;
+  padding: 11px 20px;
+  border-radius: 20px;
+}
